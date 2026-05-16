@@ -1,5 +1,6 @@
 # PortScanner
 A Basic command-line port scanner written in python using built in socket and Re libraries 
+
 How It Works
 The script walks through three stages:
 
