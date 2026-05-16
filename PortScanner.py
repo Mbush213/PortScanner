@@ -1,4 +1,5 @@
 import socket
+print(socket.gethostbyname("scanme.nmap.org"))
 
 import re
 
