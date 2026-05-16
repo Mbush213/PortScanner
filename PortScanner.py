@@ -23,3 +23,16 @@ while True:
         port_min = int(port_range_valid.group(1))
         port_max = int(port_range_valid.group(2))
         break
+
+for port in range(port_min, port_max + 1):
+    try:
+        with socket.socket(socketAF_INET, socket.SOCK_STREAM) as s:
+            s.settimeout(0.5)
+            s.connect((ip_add_entered, port))
+            open_ports.append(port)
+
+    except:
+        pass
+
+for port in open_ports:
+    print(f"Port {port} is open on {ip_add_entered}.")
