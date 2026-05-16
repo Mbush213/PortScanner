@@ -2,7 +2,7 @@ import socket
 
 import re
 
-ip_add_pattern = re.compile("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$)")
+ip_add_pattern = re.compile("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$")
 port_range_pattern = re.compile("([0-9]+)-([0-9]+)")
 port_min = 0
 port_max = 65535
@@ -26,12 +26,12 @@ while True:
 
 for port in range(port_min, port_max + 1):
     try:
-        with socket.socket(socketAF_INET, socket.SOCK_STREAM) as s:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.settimeout(0.5)
             s.connect((ip_add_entered, port))
             open_ports.append(port)
 
-    except:
+    except(socket.timeout, ConnectionRefusedError, OSError):
         pass
 
 for port in open_ports:
