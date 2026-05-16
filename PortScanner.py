@@ -1,4 +1,8 @@
 import socket
 
-def scan_ports(target, port_range)
-    print(f"Scanning target: {target}")
+import re
+
+ip_add_pattern = re.compile("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$)")
+port_range_pattern = re.compile("([0-9]+)-([0-9]+)")
+port_min = 0
+port_max = 65535
